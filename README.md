@@ -15,9 +15,11 @@ Usage:-
 $ cd Mob-Droid
 
 For linux
+
 $ python mob-droid.py
 
 For Termux
+
 $ python2 mob-droid-termux.py
 
 Now selct your options.
