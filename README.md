@@ -13,7 +13,12 @@ $ git clone https://github.com/kinghacker0/mob-droid
 Usage:-
 
 $ cd Mob-Droid
+
+For linux
 $ python mob-droid.py
+
+For Termux
+$ python2 mob-droid-termux.py
 
 Now selct your options.
 
