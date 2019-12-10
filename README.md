@@ -7,7 +7,9 @@ Requirements:-
 Installation:-
 
 $ apt update
+
 $ apt upgrade
+
 $ git clone https://github.com/kinghacker0/mob-droid
 
 Usage:-
