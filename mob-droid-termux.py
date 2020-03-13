@@ -28,7 +28,7 @@ def head():
        *****    Mob-Droid   *****
 {2}Follow me :{3}
 {1}•{3} GitHub : {4}https://github.com/kinghacker0{3}
-{1}•{3} YouTube: {4}https://www.youtube.com/Hacker'sKing{3}
+{1}•{3} YouTube: {4}https://www.youtube.com/hackersking101{3}
 {1}•{3} Website: {4}https://hackersking.in{3}
 '''.format(orange, green, bold, end, cyan)
 
