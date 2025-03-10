@@ -1,31 +1,93 @@
-# Mob-droid
-<p>Mob-Droid helps you to generate metasploit payloads in easy way without typing long commands and save your time.
-</p>
+# Mob-Droid - Android Metasploit Payload Generator
 
-<h3>Requirements:-</h3>
+![Mob-Droid](https://i.postimg.cc/NFkc0wrM/android.jpg)
 
-Metasploit-Framework
+**Mob-Droid** is an advanced tool for generating and injecting Metasploit payloads into Android APK files. It also provides an easy way to install Apktool, Apksigner, and Zipalign for APK modification and signing.
 
-<h2>Installation:-</h2>
+## 📌 Features
 
-$ apt update
+- Generate Android Metasploit payloads easily.
+- Inject payloads into original APK files.
+- Install Apktool, Apksigner, and Zipalign automatically.
+- Fully interactive and user-friendly interface.
+- Colored UI for a better experience.
+- Compatible with Kali Linux & Termux.
 
-$ apt upgrade
+## 🚀 Installation
 
-$ git clone https://github.com/kinghacker0/mob-droid
+### Prerequisites
+Ensure you have **Metasploit-Framework** installed:
+```sh
+sudo apt update && sudo apt install metasploit-framework
+```
 
-<h2>Usage:-</h2>
+### Clone the Repository
+```sh
+git clone https://github.com/kinghacker0/Mob-Droid.git
+cd Mob-Droid
+chmod +x mob-droid.py
+```
 
-$ cd Mob-Droid
+### Run the Tool
+```sh
+python3 mob-droid.py
+```
 
-For linux
+## 🎯 Usage
 
-$ python mob-droid.py
+Upon running `mob-droid.py`, you will see the following options:
 
-For Termux
+1️⃣ **Generate Android Payload**
+```sh
+LHOST: Enter your local host IP
+LPORT: Enter the port number
+Output Filename: Choose a name for your APK
+```
 
-$ python2 mob-droid-termux.py
+2️⃣ **Inject Payload into Original APK**
+```sh
+Provide path to the original APK
+Enter LHOST and LPORT
+Enter output filename
+```
 
-Now selct your options.
+3️⃣ **Install Apktool, Apksigner, Zipalign**
+```sh
+This option downloads and installs necessary tools for APK modifications.
+```
 
-<p>Watch Video Tutorial :- https://www.youtube.com/watch?v=jgRIh_NBfC8</p>
+4️⃣ **Exit**
+
+## 📦 Dependencies
+- Python 3
+- Metasploit-Framework
+- Wget (for downloading tools)
+- Apktool, Apksigner, Zipalign
+
+
+## 🛠 Troubleshooting
+- Ensure Metasploit is installed properly.
+- Run `mob-droid.py` with `python3`.
+- If tools are missing, install them manually with:
+  ```sh
+  sudo apt install apktool apksigner zipalign
+  ```
+
+## ✨ Credits
+- Developed by **Mohit Kumar** ([@KingHacker0](https://github.com/kinghacker0))
+- Part of **Hackersking eLearning**
+
+## ⚠ Disclaimer
+This tool is intended for **educational purposes only**. The author is not responsible for any misuse.
+
+## 📜 License
+[MIT License](https://opensource.org/licenses/MIT)
+
+---
+⭐ **Star this repository** if you find it useful!
+
+📢 **Follow us on:**
+- 🌐 Website: [HackersKing](https://elearning.hackersking.com)
+- 📺 YouTube: [HackersKing101](https://www.youtube.com/@hackersking101)
+- 🔥 Community: [HackersKing Forum](https://hackersking.rpy.club)
+
