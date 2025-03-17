@@ -41,9 +41,8 @@ def install_tools():
     head()
     print(f"{bold}{yellow}Installing Apktool, Apksigner, and Zipalign...{end}")
     os.system('git clone https://github.com/kinghacker0/Apktool')
-    os.system('wget https://github.com/kinghacker0/Apktool/releases/download/2.11.0/apktool.jar -O apktool.jar')
-    os.system('wget https://raw.githubusercontent.com/patrickfav/uber-apk-signer/master/apksigner -O apksigner')
-    os.system('wget https://developer.android.com/studio/command-line/zipalign -O zipalign')
+    os.system('cd Apktool && chmod +x * && bash setup.sh')
+    os.system('sudo apt install apksigner ziplaing -y')
     print(f"{green}Tools installed successfully!{end}")
     sleep(2)
 
