@@ -42,7 +42,7 @@ def install_tools():
     print(f"{bold}{yellow}Installing Apktool, Apksigner, and Zipalign...{end}")
     os.system('git clone https://github.com/kinghacker0/Apktool')
     os.system('cd Apktool && chmod +x * && bash setup.sh')
-    os.system('sudo apt install apksigner ziplaing -y')
+    os.system('sudo apt install apksigner zipalign -y')
     print(f"{green}Tools installed successfully!{end}")
     sleep(2)
 
