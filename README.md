@@ -68,6 +68,7 @@ This option downloads and installs necessary tools for APK modifications.
 ## 🛠 Troubleshooting
 - Ensure Metasploit is installed properly.
 - Run `mob-droid.py` with `python3`.
+- Use Wallpaper template /output/template.apk to generate a wallpaper App payload
 - If tools are missing, install them manually with:
   ```sh
   sudo apt install apktool apksigner zipalign
